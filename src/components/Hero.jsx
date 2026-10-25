@@ -9,7 +9,7 @@ export default function Hero({ nama, tagline }) {
         width={180}
         height={180}
         loading="eager"
-        clasName="h-45 w-45 shrink-0 rounded-full border-4 border-aksen object-cover"
+          className="h-[180px] w-[180px] shrink-0 rounded-full border-4 border-aksen object-cover"
       />
 
       <div>
