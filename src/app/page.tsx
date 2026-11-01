@@ -43,9 +43,13 @@ export default function Home() {
               <ProyekCard key={item.slug} proyek={item} />
           ))}
           </div>
-          <Link href="/proyek" className="mt-6 inline-block rounded-lg bg utama px-5 py-2 font-semibold text-white">
-            Lihat semua proyek
-          </Link>
+
+        <Link
+          href="/proyek"
+          className="mt-6 inline-block rounded-lg bg-utama px-5 py-2 font-semibold text-white hover:opacity-80"
+        >
+          Lihat semua proyek
+        </Link>
       </section>
       
 

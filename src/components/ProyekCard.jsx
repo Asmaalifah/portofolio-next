@@ -12,10 +12,19 @@ export default function ProyekCard({ proyek }) {
         width={640}
         height={440}
         loading="eager"
-        className="h-auto w-full"
+        className="h-48 w-full object-cover"
         />
         <div className="p-5">
-        <span className="rounded-full bg-latar px-3 py-1 text-xs font-semibold text-utama">{proyek.kategori}</span>
+        <div className="flex flex-wrap gap-2">
+            {proyek.kategori.map((item) => (
+                <span
+                    key={item}
+                    className="rounded-full bg-latar px-3 py-1 text-xs font-semibold text-utama"
+                >
+                    {item}
+                </span>
+            ))}
+        </div>
         <h3 className="mt-3 text-lg font-semibold text utama">{proyek.judul}</h3>
         <p className="mt-1 text-sm text-gray-600">{proyek.deskripsi}</p>
         </div>

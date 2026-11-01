@@ -38,13 +38,18 @@ export default async function DetailProyek({ params }) {
         loading="eager"
         className="mt-6 h-auto w-full rounded-xl border border-gray-200"
         />
-        <p className="mt-6 text-lg">{item.deskripsi}</p>
-        <h2 className="mt-8 text-2xl font-bold text-utama">Yang Saya Pelajari</h2>
-        <ul className="mt-3 list-disc pl-5">
-        {item.fitur.map((f) => (
-            <li key={f}>{f}</li>
-        ))}
-        </ul>
+        <div className="mt-8 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h2 className="text-xl font-bold text-utama">Deskripsi Proyek</h2>
+            <p className="mt-2 text-gray-700 leading-relaxed">{item.deskripsi}</p>
+        </div>
+        <div className="mt-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <h2 className="text-xl font-bold text-utama">Yang Saya Pelajari</h2>
+            <ul className="mt-3 list-disc pl-5 space-y-1 text-gray-700">
+            {item.fitur.map((f) => (
+                <li key={f}>{f}</li>
+            ))}
+            </ul>
+        </div>
     </main>
     );
 }

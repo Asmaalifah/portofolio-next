@@ -1,8 +1,8 @@
 export const proyek = [
     {
-    slug: "halaman-profil",
+    slug: "halaman-profil", // Sudah benar
     judul: "Halaman Profil",
-    kategori:["HTML", "CSS","CodePen"], 
+    kategori: ["HTML", "CSS", "CodePen"], 
     minggu: "Minggu 01",
     gambar: "/proyek/hasil_project_1.png",
     deskripsi: "Halaman profil pertama saya, yang dibangun dari nol sembari mempelajari dasar-dasar pengembangan struktur HTML.",
@@ -13,7 +13,7 @@ export const proyek = [
     ],
     },
     {
-    slug: "Mobile Responsive",
+    slug: "mobile-responsive", // UBAH INI (Huruf kecil & pakai tanda strip)
     judul: "Mobile Responsive",
     kategori: ["HTML", "CSS", "Responsive"],
     minggu: "Minggu 02",
@@ -26,7 +26,7 @@ export const proyek = [
     ],
     },
     {
-    slug: "Interactive Digital",
+    slug: "interactive-digital", // UBAH INI (Huruf kecil & pakai tanda strip)
     judul: "Interactive Digital",
     kategori: ["HTML", "CSS", "JAVASCRIPT"],
     minggu: "Minggu 03",
