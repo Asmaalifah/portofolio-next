@@ -19,8 +19,6 @@ export default function Hero({ nama, tagline }) {
         <p className="mt-3 text-lg text-gray-700">{tagline}</p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-          <a href="#tentang" className="rounded-lg bg-utama px-5 py-3 font-semibold text-white hover:opacity-90">Tentang saya</a>
-          <a href="#keahlian" className="rounded-lg border border-utama px-5 py-3 font-semibold text-utama hover:bg-white">Lihat keahlian</a>
         </div>
       </div>
     </section>
