@@ -51,8 +51,6 @@ export default function Home() {
           Lihat semua proyek
         </Link>
       </section>
-      
-
     </main>
     </>
   );
