@@ -22,7 +22,6 @@ export const metadata = {
   description: "Portofolio Asma Alifah, siswa SMK calon Junior Web Developer di Kelas Industri UBIG.",
 };
 
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
