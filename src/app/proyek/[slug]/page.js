@@ -40,11 +40,14 @@ export default async function DetailProyek({ params }) {
         &larr; Kembali ke daftar proyek
       </Link>
 
-      <h1 className="mt-4 text-3xl font-bold text-utama md:text-4xl">
+      <h1 className="mt-4 text-3xl font-boldtext-utama dark:text-
+sky-200
+ dark:text-sky-200 dark:text-sky-200 md:text-4xl">
         {item.judul}
       </h1>
 
-      <p className="mt-2 text-gray-600">
+      <p className="mt-2 text-gray-600 dark:text-
+gray-400">
         {item.kategori.join(" · ")} &middot; Dibuat di {item.minggu}
       </p>
 
@@ -56,16 +59,26 @@ export default async function DetailProyek({ params }) {
         className="mt-6 h-auto w-full rounded-xl border border-gray-200"
       />
 
-      <div className="mt-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-bold text-utama">Deskripsi Proyek</h2>
-        <p className="mt-2 leading-relaxed text-gray-700">
+      <div className="mt-8 rounded-2xl border border-gray-100 bg-white dark:bg-gray-800
+ p-6 shadow-sm">
+        <h2 className="text-xl font-boldtext-utama dark:text-
+sky-200
+ dark:text-sky-200 dark:text-sky-200">Deskripsi Proyek</h2>
+        <p className="mt-2 leading-relaxed text-gray-700 dark:text-
+gray-300
+">
           {item.deskripsi}
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-bold text-utama">Yang Saya Pelajari</h2>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-gray-700">
+      <div className="mt-6 rounded-2xl border border-gray-100 bg-white dark:bg-gray-800
+ p-6 shadow-sm">
+        <h2 className="text-xl font-boldtext-utama dark:text-
+sky-200
+ dark:text-sky-200 dark:text-sky-200">Yang Saya Pelajari</h2>
+        <ul className="mt-3 list-disc space-y-1 pl-5 text-gray-700 dark:text-
+gray-300
+">
           {item.fitur.map((f) => (
             <li key={f}>{f}</li>
           ))}

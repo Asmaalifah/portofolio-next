@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-latar text-gray-800">
+      <body className="min-h-full flex flex-col bg-latar dark:bg-gray-900 dark:bg-gray-900 text-gray-800 dark:text- gray-100 dark:text-gray-100">
         {/* 2. BUNGKUS NAVBAR DENGAN SUSPENSE */}
         <Suspense fallback={<div className="h-16 bg-utama" />}>
           <Navbar/>

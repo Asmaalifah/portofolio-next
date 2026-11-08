@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TombolTema from "@/components/TombolTema";
 
 const menu = [
     { href: "/", label: "Beranda" },
@@ -18,11 +19,11 @@ export default function Navbar() {
             Asma Alifah
         </Link>
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
-           {menu.map((item) => {
+            {menu.map((item) => {
         let kelas = "text-gray-200 hover:text-white transition-all";
         if (pathname === item.href) {
         kelas = "font-bold text-white underline underline-offset-8 decoration-2";
-     }
+        }
 
             return (
                 <li key={item.href}>
@@ -33,6 +34,7 @@ export default function Navbar() {
             );
             })}
         </ul>
+        <TombolTema />
         </nav>
     </header>
     );

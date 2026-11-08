@@ -11,11 +11,11 @@ const skills = [
   { nama: "Desain poster dengan Canva", level: "Mahir" },
   { nama: "JavaScript", level: "Dasar" },
 ];
+
 const proyekTerbaru = proyek.slice(-3);
 
 export default function Home() {
   return (
-    <>
     <main className="mx-auto w-full max-w-5xl px-4 py-10">
       <Hero
         nama="Asma Alifah"
@@ -23,26 +23,31 @@ export default function Home() {
       />
 
       <section id="keahlian" className="mt-10 scroll-mt-8">
-          <h2 className="mb-5 text-2xl font-bold text-utama">Keahlian</h2>
+        <h2 className="mb-5 text-2xl font-bold text-utama dark:text-sky-200">
+          Keahlian
+        </h2>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {skills.map((skill) => (
-              <SkillCard
-                key={skill.nama}
-                nama={skill.nama}
-                level={skill.level}
-              />
-            ))}
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {skills.map((skill) => (
+            <SkillCard
+              key={skill.nama}
+              nama={skill.nama}
+              level={skill.level}
+            />
+          ))}
+        </div>
       </section>
 
       <section className="mt-10">
-          <h2 className="mb-4 text-2xl font-bold text-utama">Proyek Terbaru</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {proyekTerbaru.map((item) => (
-              <ProyekCard key={item.slug} proyek={item} />
+        <h2 className="mb-4 text-2xl font-bold text-utama dark:text-sky-200">
+          Proyek Terbaru
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {proyekTerbaru.map((item) => (
+            <ProyekCard key={item.slug} proyek={item} />
           ))}
-          </div>
+        </div>
 
         <Link
           href="/proyek"
@@ -52,6 +57,5 @@ export default function Home() {
         </Link>
       </section>
     </main>
-    </>
   );
 }
