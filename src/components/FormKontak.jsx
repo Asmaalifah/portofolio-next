@@ -182,6 +182,7 @@ export default function FormKontak() {
             <p className="text-xs text-gray-600 dark:text-gray-400 mt-4 pt-2 border-t border-gray-200 dark:border-gray-700">
                 *Pengiriman pesan masih belum terhubung🙏.
             </p>
+            
 
         </form>
     );

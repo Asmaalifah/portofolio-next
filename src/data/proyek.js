@@ -1,6 +1,6 @@
 export const proyek = [
     {
-    slug: "halaman-profil", // Sudah benar
+    slug: "halaman-profil", 
     judul: "Halaman Profil",
     kategori: ["HTML", "CSS", "CodePen"], 
     minggu: "Minggu 01",
@@ -13,7 +13,7 @@ export const proyek = [
     ],
     },
     {
-    slug: "mobile-responsive", // UBAH INI (Huruf kecil & pakai tanda strip)
+    slug: "mobile-responsive", 
     judul: "Mobile Responsive",
     kategori: ["HTML", "CSS", "Responsive"],
     minggu: "Minggu 02",
@@ -26,9 +26,9 @@ export const proyek = [
     ],
     },
     {
-    slug: "interactive-digital", // UBAH INI (Huruf kecil & pakai tanda strip)
+    slug: "interactive-digital", 
     judul: "Interactive Digital",
-    kategori: ["HTML", "CSS", "JAVASCRIPT"],
+    kategori: ["HTML", "CSS", "JavaScript"],
     minggu: "Minggu 03",
     gambar: "/proyek/hasil_project_3.png",
     deskripsi: "Profil interaktif yang menggunakan JavaScript untuk pergantian tema, sapaan dinamis, dan avatar animasi berputar.",
