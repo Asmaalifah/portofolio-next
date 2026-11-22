@@ -33,6 +33,20 @@ function getValidImageSrc(url) {
   return `/${trimmed}`;
 }
 
+function getCategoryVariant(kategori) {
+  switch (kategori.trim().toLowerCase()) {
+    case "html":
+      return "html";
+    case "css":
+      return "css";
+    case "javascript":
+    case "js":
+      return "javascript";
+    default:
+      return "default";
+  }
+}
+
 export default function ProyekCard({ proyek }) {
   const daftarKategori = Array.isArray(proyek.kategori)
     ? proyek.kategori
@@ -72,8 +86,7 @@ export default function ProyekCard({ proyek }) {
             {daftarKategori.map((kat) => (
               <Badge
                 key={kat}
-                variant="default"
-                className="border-primary bg-primary text-primary-foreground"
+                variant={getCategoryVariant(kat)}
               >
                 {kat}
               </Badge>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import Proyekcard from "@/components/Proyekcard";
+import ProyekCard from "@/components/ProyekCard";
 import SkillCard from "@/components/SkillCard";
 import { buttonVariants } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
@@ -60,7 +60,7 @@ export default async function Home() {
 
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {proyekTerbaru.map((item) => (
-              <Proyekcard key={item.slug} proyek={item} />
+              <ProyekCard key={item.slug} proyek={item} />
             ))}
           </div>
 

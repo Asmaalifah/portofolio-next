@@ -5,9 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/lib/supabase";
 
-// Mengizinkan rute ini dirender secara dinamis tanpa memblokir build
-export const instant = false;
-
 async function ambilProyek(slug) {
   const { data } = await supabase
     .from("projects")

@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import FilterProyek from "@/components/FilterProyek";
 import { supabase } from "@/lib/supabase";
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "Proyek",
   description:
