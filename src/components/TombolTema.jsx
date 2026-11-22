@@ -1,44 +1,40 @@
 "use client";
+import { useEffect, useSyncExternalStore } from "react";
+import { Button } from "@/components/ui/button";
 
-import { useEffect, useState } from "react";
+function subscribe(callback) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
 
 export default function TombolTema() {
-    const [gelap, setGelap] = useState(false);
+  const gelap = useSyncExternalStore(
+    subscribe,
+    () => localStorage.getItem("tema") === "gelap",
+    () => false
+  );
 
-    // Mengambil tema yang tersimpan setelah komponen tampil
-    useEffect(() => {
-        const tema = localStorage.getItem("tema");
-
-        if (tema === "gelap") {
-            document.documentElement.classList.add("dark");
-            setGelap(true);
-        } else {
-            document.documentElement.classList.remove("dark");
-            setGelap(false);
-        }
-    }, []);
-
-    function gantiTema() {
-        const temaBaru = !gelap;
-
-        setGelap(temaBaru);
-
-        if (temaBaru) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("tema", "gelap");
-        } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("tema", "terang");
-        }
+  useEffect(() => {
+    if (gelap) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
+  }, [gelap]);
 
-    return (
-        <button
-            type="button"
-            onClick={gantiTema}
-            className="rounded-lg border border-white px-3 py-1 text-sm font-semibold text-white hover:border-aksen hover:bg-aksen"
-        >
-            {gelap ? "Mode Terang" : "Mode Gelap"}
-        </button>
-    );
+  function gantiTema() {
+    const temaBaru = gelap ? "terang" : "gelap";
+    localStorage.setItem("tema", temaBaru);
+    window.dispatchEvent(new Event("storage"));
+  }
+
+  return (
+    <Button
+      variant="outline"
+      onClick={gantiTema}
+      className="border-white bg-transparent text-white hover:bg-aksen hover:text-white"
+    >
+      {gelap ? "Mode Terang" : "Mode Gelap"}
+    </Button>
+  );
 }
