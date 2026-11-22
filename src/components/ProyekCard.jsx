@@ -67,7 +67,7 @@ export default function ProyekCard({ proyek }) {
         </div>
 
         <CardHeader className="flex-1">
-          {/* Kolom pembungkus kategori */}
+          {/* Kategori berwarna biru */}
           <div className="mb-2 flex flex-wrap gap-2">
             {daftarKategori.map((kat) => (
               <Badge

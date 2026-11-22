@@ -33,27 +33,27 @@ async function DaftarProyekData() {
     );
   }
 
-  // Menyalin data proyek agar data asli tidak berubah
+  // Salin data proyek
   const proyekTersusun = [...proyek];
 
-  // Mencari posisi Interactive Digital dan Halaman Profil
+  // Cari posisi Interactive Digital
   const indexInteractive = proyekTersusun.findIndex(
-    (item) => item.judul === "Interactive Digital"
+    (item) => item.judul?.trim() === "Interactive Digital"
   );
 
+  // Cari posisi Halaman Profil
   const indexHalaman = proyekTersusun.findIndex(
-    (item) => item.judul === "Halaman Profil"
+    (item) => item.judul?.trim() === "Halaman Profil"
   );
 
-  // Menukar posisi kedua proyek
+  // Tukar posisi kedua proyek
   if (indexInteractive !== -1 && indexHalaman !== -1) {
-    [
-      proyekTersusun[indexInteractive],
-      proyekTersusun[indexHalaman],
-    ] = [
-      proyekTersusun[indexHalaman],
-      proyekTersusun[indexInteractive],
-    ];
+    const sementara = proyekTersusun[indexInteractive];
+
+    proyekTersusun[indexInteractive] =
+      proyekTersusun[indexHalaman];
+
+    proyekTersusun[indexHalaman] = sementara;
   }
 
   return <FilterProyek proyek={proyekTersusun} />;
