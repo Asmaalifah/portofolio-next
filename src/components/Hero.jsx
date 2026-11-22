@@ -16,7 +16,7 @@ export default function Hero({ nama, tagline }) {
         <h1 className="text-3xl font-boldtext-utama dark:text- sky-200 dark:text-sky-200 dark:text-sky-200 md:text-5xl">
           Halo, saya {nama}!
         </h1>
-        <p className="mt-3 text-lg text-gray-700 dark:text-gray-300">{tagline}</p>
+        <p className="mt-3 text-lg text-muted-foreground">{tagline}</p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
         </div>

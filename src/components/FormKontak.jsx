@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-2";
+const kelasInput = "mt-1 w-full rounded-lg border border-input bg-card text-gray-800 dark:text-gray-100 p-2";
 
 export default function FormKontak() {
     const [nama, setNama] = useState("");
@@ -68,7 +68,7 @@ export default function FormKontak() {
                 />
 
                 {error.nama && (
-                    <p className="mt-1 text-sm text-aksen dark:text-red-300">
+                    <p className="mt-1 text-sm text-aksen">
                         {error.nama}
                     </p>
                 )}
@@ -90,7 +90,7 @@ export default function FormKontak() {
                 />
 
                 {error.email && (
-                    <p className="mt-1 text-sm text-aksen dark:text-red-300">
+                    <p className="mt-1 text-sm text-aksen">
                         {error.email}
                     </p>
                 )}
@@ -112,7 +112,7 @@ export default function FormKontak() {
                 />
 
                 {error.telepon && (
-                    <p className="mt-1 text-sm text-aksen dark:text-red-300">
+                    <p className="mt-1 text-sm text-aksen">
                         {error.telepon}
                     </p>
                 )}
@@ -136,7 +136,7 @@ export default function FormKontak() {
                 </select>
 
                 {error.keperluan && (
-                    <p className="mt-1 text-sm text-aksen dark:text-red-300">
+                    <p className="mt-1 text-sm text-aksen">
                         {error.keperluan}
                     </p>
                 )}
@@ -158,7 +158,7 @@ export default function FormKontak() {
                 />
 
                 {error.pesan && (
-                    <p className="mt-1 text-sm text-aksen dark:text-red-300">
+                    <p className="mt-1 text-sm text-aksen">
                         {error.pesan}
                     </p>
                 )}
@@ -167,7 +167,7 @@ export default function FormKontak() {
             <div className="pt-2">
                 <button
                     type="submit"
-                    className="bg-red-700 hover:bg-red-800 text-white font-semibold py-2.5 px-6 rounded-lg text-sm transition-colors duration-200 shadow-sm"
+                    className="rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-80 transition"
                 >
                     Kirim Pesan
                 </button>
@@ -179,7 +179,7 @@ export default function FormKontak() {
                 </p>
             )}
 
-            <p className="text-xs text-gray-600 dark:text-gray-400 mt-4 pt-2 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
                 *Pengiriman pesan masih belum terhubung🙏.
             </p>
             

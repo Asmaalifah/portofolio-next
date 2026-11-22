@@ -1,41 +1,94 @@
+
 import Image from "next/image";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+function getValidImageSrc(url) {
+  if (!url || typeof url !== "string") return null;
+
+  const trimmed = url.trim();
+  if (!trimmed) return null;
+
+  if (
+    trimmed.startsWith("http://") ||
+    trimmed.startsWith("https://")
+  ) {
+    try {
+      return new URL(trimmed).toString();
+    } catch {
+      return null;
+    }
+  }
+
+  if (trimmed.startsWith("/")) {
+    return trimmed;
+  }
+
+  return `/${trimmed}`;
+}
 
 export default function ProyekCard({ proyek }) {
-    return (
-        <Link
-            href={`/proyek/${proyek.slug}`}
-            className="block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
-        >
-        <Image
-            src={proyek.gambar}
-            alt={`Tangkapan layar ${proyek.judul}`}
-            width={640}
-            height={440}
-            loading="eager"
-            className="h-48 w-full object-cover"
-        />
+  const daftarKategori = Array.isArray(proyek.kategori)
+    ? proyek.kategori
+    : proyek.kategori
+        ?.split(",")
+        .map((item) => item.trim())
+        .filter(Boolean) || [];
 
-        <div className="p-5">
-            <div className="flex flex-wrap gap-2">
-                {proyek.kategori.map((item) => (
-                <span
-                    key={item}
-                    className="rounded-full bg-latar px-3 py-1 text-xs font-semibold text-utama dark:bg-gray-900 dark:text-sky-200"
-                >
-                    {item}
-                </span>
-                ))}
+  const imageSrc = getValidImageSrc(proyek.gambar_url);
+
+  return (
+    <Link
+      href={`/proyek/${proyek.slug || ""}`}
+      className="block h-full rounded-xl transition hover:shadow-md"
+    >
+      <Card className="flex h-full flex-col overflow-hidden border-border bg-card">
+        <div className="relative h-48 w-full overflow-hidden border-b border-border bg-muted">
+          {imageSrc ? (
+            <Image
+              src={imageSrc}
+              alt={`Tangkapan layar ${proyek.judul || "proyek"}`}
+              width={640}
+              height={420}
+              loading="eager"
+              className="h-full w-full object-cover object-top"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
+              Tidak ada gambar
             </div>
-
-            <h3 className="mt-3 text-lg font-bold text-utama dark:text-sky-100 group-hover:text-blue-600 transition-colors line-clamp-2">
-                {proyek.judul}
-            </h3>
-
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 line-clamp-3 flex-grow">
-                {proyek.deskripsi}
-            </p>
+          )}
         </div>
-        </Link>
-    );
+
+        <CardHeader className="flex-1">
+          {/* Kolom pembungkus kategori */}
+          <div className="mb-2 flex flex-wrap gap-2">
+            {daftarKategori.map((kat) => (
+              <Badge
+                key={kat}
+                variant="default"
+                className="border-primary bg-primary text-primary-foreground"
+              >
+                {kat}
+              </Badge>
+            ))}
+          </div>
+
+          <CardTitle className="text-lg text-primary">
+            {proyek.judul}
+          </CardTitle>
+
+          <CardDescription className="line-clamp-3">
+            {proyek.deskripsi}
+          </CardDescription>
+        </CardHeader>
+      </Card>
+    </Link>
+  );
 }
