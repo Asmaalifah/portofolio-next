@@ -41,6 +41,8 @@ function getCategoryVariant(kategori) {
       return "css";
     case "javascript":
     case "js":
+    case "responsive":
+    case "codepen":
       return "javascript";
     default:
       return "default";

@@ -4,7 +4,6 @@ import ProyekCard from "@/components/ProyekCard";
 import SkillCard from "@/components/SkillCard";
 import { buttonVariants } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
-
 export const revalidate = 60;
 
 export default async function Home() {
@@ -19,7 +18,20 @@ export default async function Home() {
     .order("created_at", { ascending: false })
     .limit(3);
 
-  const proyekTerbaru = proyekDariSupabase || [];
+  const proyekTerbaru = [...(proyekDariSupabase || [])];
+  const indexInteractive = proyekTerbaru.findIndex(
+    (item) => item.judul?.trim() === "Interactive Digital"
+  );
+  const indexHalaman = proyekTerbaru.findIndex(
+    (item) => item.judul?.trim() === "Halaman Profil"
+  );
+
+  if (indexInteractive !== -1 && indexHalaman !== -1) {
+    [proyekTerbaru[indexInteractive], proyekTerbaru[indexHalaman]] = [
+      proyekTerbaru[indexHalaman],
+      proyekTerbaru[indexInteractive],
+    ];
+  }
 
   return (
     <div className="flex min-h-screen flex-col font-sans text-foreground">
